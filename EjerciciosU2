@@ -1,0 +1,80 @@
+import re
+
+txt = """ La teoría de autómatas es una rama de la teoría de la computación que estudia las Msquinas abstractas y los problemas que éstas son capaces de resolver. La teoría de autómatas está estrechamente relacionada con la teoría del lenguaje formal ya que los autómatas son clasificados a Msnudo por la clase de lenguajes formales que son capaces de reconocer. También son de gran utilidad en la teoría de la complejidad computacional, si desea tener información mas especifica comunicarse alos números proporcionados a continuación 985 123 45 66, 984 123 23 43, 985 321 32 43, 985 345 65 74.
+Un autómata es un modelo matemático para una máquina de estado finito (FSM sus siglas en inglés). Una FSM es una máquina que, dada una entrada de símbolos, "salta" a través de una serie de estados de acuerdo a una función de transición (que puede ser expresada como una tabla). En la variedad común "Mealy" de FSMs, esta función de transición dice al autómata a qué estado cambiar dados unos determinados estado y símbolo. Diferentes códigos postales 97770, 01219, 01220, 01221, 01222
+La entrada es leída símbolo por símbolo, hasta que es "consumida" completamente (piense en ésta como una cinta con una palabra escrita en ella, que es leída por una cabeza lectora del autómata; la cabeza se mueve a lo largo de la cinta, leyendo un símbolo a la vez) una vez la entrada se ha agotado, el autómata se detiene.
+La gramática es un ente formal para especificar, de una manera finita, el conjunto de cadenas de símbolos que constituyen un lenguaje, es preferible que se estudie la gramática en un horario especifico y definido, ya sea en la mañana de 9:00 am a 11:00 am o si es preferible en la tarde que sea de 3:00 pm a 5:00 pm.
+Dependiendo del estado en el que el autómata finaliza se dice que este ha aceptado o rechazado la entrada. Si este termina en el estado "acepta", el autómata acepta la palabra. Si lo hace en el estado "rechaza", el autómata rechazó la palabra, el conjunto de todas las palabras aceptadas por el autómata constituyen el lenguaje aceptado por el mismo, para mas información comunicarse a los correos fer001@gmail.com, greg893@gmail.com, jose@gmail.com. 
+Les proporcionare unos ejemplos de “IP” para que sepan como son y de esa forma cuando seles solicitan sepan que es un IP 10.255.255.255, 172.31.255.255, 192.168.255.255. 
+Un autómata es una construcción lógica que recibe una entrada y produce una salida en función de todo lo recibido hasta ese instante. En el caso de los Procesadores de Lenguaje un autómata es una construcción si dicha cadena pertenece o no a un determinado lenguaje, si desea introducirse en el tema puede revisar en las siguientes urls http://lengyaut.blogspot.com/2017/08/definicion-alfabetos-cadena-lenguaje.html, http://decsai.ugr.es/~rosa/tutormc/teoria/lenguajesregulares2.html, https://codingornot.com/que-es-un-automata. 
+   """
+
+print("-----------------------------------------------------------------------")
+print("1.	Todas las palabras que tengan una longitud de 7 o más letras")
+x = r"[A-Za-záéíóú]{7,}"
+resultax = re.findall(x,txt)
+for resultadosx in resultax:
+    print(resultadosx)
+
+print("-----------------------------------------------------------------------")
+print("2.	Expresiones que NO finalicen con una vocal.")
+y = r"[A-Za-záéíóú]{1,}[^aeiou\s/W]\b"
+resultay = re.findall(y,txt)
+for resultadosy in resultay:
+    print(resultadosy) 
+
+print("-----------------------------------------------------------------------")
+print("3.	Las palabras que inicien con “M” donde la segunda letra no sea vocal")
+z = r"[M][^aeiouáéíóú]\w{1,}"
+resultaz = re.findall(z,txt)
+for resultadosz in resultaz:
+    print(resultadosz)
+
+print("-----------------------------------------------------------------------")
+print("4.	Expresiones encerradas entre comillas")
+a = r"(\"[\w\s]+\")"
+resultaa = re.findall(a,txt)
+for resultadosa in resultaa:
+    print(resultadosa)
+
+print("-----------------------------------------------------------------------")
+print("5.	Ip’s")
+b = r"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+resultab = re.findall(b,txt)
+for resultadosb in resultab:
+    print(resultadosb)
+
+print("-----------------------------------------------------------------------")
+print("6.	Horas")
+c = r"[0-9]{1,2}\:[0-9]{1,2}\s[a|p][m]"
+resultac = re.findall(c,txt)
+for resultadosc in resultac:
+    print(resultadosc)
+
+print("-----------------------------------------------------------------------")
+print("7.	Telefonos")
+d = r"[0-9]{1,3}\s[0-9]{1,3}\s[0-9]{1,4}"
+resultad = re.findall(d,txt)
+for resultadosd in resultad:
+    print(resultadosd)
+
+print("-----------------------------------------------------------------------")
+print("8.	Correos electrónicos")
+e = r"\w+[\@]+\w+[.]+\w+"
+resultae = re.findall(e,txt)
+for resultadose in resultae:
+    print(resultadose)
+
+print("-----------------------------------------------------------------------")
+print("9.	Url´s")
+f = r"https://+\w+[.]\w+"
+resultaf = re.findall(f,txt)
+for resultadosf in resultaf:
+    print(resultadosf)
+
+print("-----------------------------------------------------------------------")
+print("10.	Código postal")
+g = r"\d{5}"
+resultag = re.findall(g,txt)
+for resultadosg in resultag:
+    print(resultadosg)
